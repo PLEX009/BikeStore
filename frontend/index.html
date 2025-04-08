@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Store - Tu tienda de bicicletas</title>
+    <meta name="description" content="La mejor tienda de bicicletas con los mejores productos al mejor precio">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/LogoIcono.ico" class="icono">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="assets/js/function.js" defer></script>
+</head>
+
+<body>
+    <!-- Menú del carrito -->
+    <div class="carrito-menu">
+        <div class="carrito-content">
+        </div>
+    </div>
+
+    <!-- Modal Quienes Somos -->
+    <div class="modal-quienes-somos" id="modal-quienes-somos">
+        <div class="modal-content">
+            <button class="close-modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h2>¿Quiénes Somos?</h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-info">
+                    <h3>Nuestra Historia</h3>
+                    <p>Desde 2024, Bike Store ha sido un referente en el mundo del ciclismo. Comenzamos como una pequeña tienda local y hemos crecido hasta convertirnos en uno de los principales distribuidores de bicicletas y accesorios en la región.</p>
+                    
+                    <h3>Nuestra Misión</h3>
+                    <p>Nos dedicamos a proporcionar a nuestros clientes las mejores bicicletas y accesorios, junto con un servicio excepcional. Queremos inspirar a más personas a unirse al mundo del ciclismo y contribuir a un estilo de vida más saludable y sostenible.</p>
+                    
+                    <h3>Nuestros Valores</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Calidad y excelencia en cada producto</li>
+                        <li><i class="fas fa-check-circle"></i> Atención personalizada al cliente</li>
+                        <li><i class="fas fa-check-circle"></i> Compromiso con el medio ambiente</li>
+                        <li><i class="fas fa-check-circle"></i> Innovación constante</li>
+                    </ul>
+                    <div class="modal-btn">
+                        <button><a href="catalogo/catalogo.html">Ver Catálogo</a></button>
+                    </div>
+                </div>
+                <div class="modal-imagen">
+                    <img src="assets/img/bici3main.jpg" alt="Nuestra tienda">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal del Carrito -->
+    <div class="overlay"></div>
+    <div class="modal-carrito">
+        <div class="modal-carrito-header">
+            <h2>Tu Carrito</h2>
+            <button class="close-carrito">&times;</button>
+        </div>
+        <div class="modal-carrito-body">
+            <div class="carrito-items">
+                <!-- Los items del carrito se agregarán dinámicamente aquí -->
+            </div>
+        </div>
+        <div class="modal-carrito-footer">
+            <div class="carrito-total">
+                <span>Total:</span>
+                <span class="total-precio">$0.00</span>
+            </div>
+            <button class="btn-comprar">Proceder al Pago</button>
+        </div>
+    </div>
+
+    <!-- Header y Navegación -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo -->
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="assets/img/Logo-bikeStore.jpg" alt="Logo Bike Store" class="logo">
+                </a>
+            </div>
+    <!-- Usuario -->
+           <!--  <div class="usuarios">
+                <img src="assets/img/masculino.png" alt="Usuario ">
+                <p>Usuario</p>
+            </div> -->
+
+            <!-- Botón hamburguesa para móvil -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Contenedor de navegación -->
+            <div class="nav-container">
+                <!-- Enlaces de navegación -->
+                <ul class="nav-links" id="nav-menu">
+                    <li><a href="#" data-modal="quienes-somos">¿Quiénes Somos?</a></li>
+                    <li><a href="#contacto" alt="Contacto">Contacto</a></li>
+                    <!-- Carrito -->
+                    <li class="contenedor-carrito">
+                        <a href="#carrito" class="carrito"><i class="fas fa-shopping-cart"></i>Carrito</a>
+                        <span class="count-carrito" id="cont-carrito">0</span>
+                    </li>
+                    <li><a href="./login/login.html" class="login-btn"><i class="fas fa-user"></i> Iniciar Sesión</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="main">
+        <!-- Sección Hero -->
+        <div class="main-content">
+            <div class="main-section">
+                <div class="main-text">
+                    <div class="main-text-content">
+                        <h2>Descubre tu próxima</h2>
+                        <span>Aventura</span>
+                        <p>Las mejores bicicletas para cada tipo de ciclista</p>
+                        <!-- Boton para ver el catalogo -->
+                        <a href="catalogo/catalogo.html" class="btn-main"><button >Ver Catalogo</button></a>
+                    </div>
+                </div>
+                <div class="main-image">
+                    <img src="assets/img/bici1main.jpg" alt="Bicicleta principal 1">
+                    <img src="assets/img/bici2main.jpg" alt="Bicicleta principal 2">
+                    <img src="assets/img/bici3main.jpg" alt="Bicicleta principal 3">
+                    <img src="assets/img/bici4main.jpg" alt="Bicicleta principal 4">
+                    <img src="assets/img/bici5main.jpg" alt="Bicicleta principal 5">
+                </div>
+            </div>
+        </div>
+
+        <!-- Carrusel de Marcas -->
+        <section class="carousel-marcas">
+            <h2 class="titulo-marcas">Nuestras Marcas</h2>
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/img/finsadi.png" alt="Marca 1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/ergotect.png" alt="Marca 2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/pie=relli.png" alt="Marca 3">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/onginer.png" alt="Marca 4">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/bmc.png" alt="Marca 5">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="assets/img/dakine.png" alt="Marca 6">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/Kali.png" alt="Marca 7">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Productos Destacados -->
+        <section class="productos-destacados">
+            <h2 class="titulo-productos">Productos Destacados</h2>
+            <div class="productos-grid">
+                <div class="producto-card" data-producto="bicicleta-montana">
+                    <div class="producto-imagen">
+                        <img src="assets/img/bici3.png" alt="Bicicleta de montaña">
+                    </div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">Bicicleta de Montaña</h3>
+                        <p class="producto-precio">$1,000.00</p>
+                        <div class="producto-acciones">
+                            <a href="#" class="btn-detalles">Ver Detalles</a>
+                            <button class="btn-carrito">
+                                <i class="fas fa-shopping-cart"></i>
+                                Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="producto-card" data-producto="bicicleta-carretera">
+                    <div class="producto-imagen">
+                        <img src="assets/img/bici15.png" alt="Bicicleta de carretera">
+                    </div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">Bicicleta de Carretera</h3>
+                        <p class="producto-precio">$1,200.00</p>
+                        <div class="producto-acciones">
+                            <a href="#" class="btn-detalles">Ver Detalles</a>
+                            <button class="btn-carrito">
+                                <i class="fas fa-shopping-cart"></i>
+                                Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="producto-card" data-producto="bicicleta-electrica">
+                    <div class="producto-imagen">
+                        <img src="assets/img/bici8.png" alt="Bicicleta eléctrica">
+                    </div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">Bicicleta Eléctrica</h3>
+                        <p class="producto-precio">$1,500.00</p>
+                        <div class="producto-acciones">
+                            <a href="#" class="btn-detalles">Ver Detalles</a>
+                            <button class="btn-carrito">
+                                <i class="fas fa-shopping-cart"></i>
+                                Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="producto-card" data-producto="bicicleta-urbana">
+                    <div class="producto-imagen">
+                        <img src="assets/img/bici13.png" alt="Bicicleta urbana">
+                    </div>
+                    <div class="producto-info">
+                        <h3 class="producto-titulo">Bicicleta Urbana</h3>
+                        <p class="producto-precio">$800.00</p>
+                        <div class="producto-acciones">
+                            <a href="#" class="btn-detalles">Ver Detalles</a>
+                            <button class="btn-carrito">
+                                <i class="fas fa-shopping-cart"></i>
+                                Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+         <!-- Modal Detalles del Producto -->
+    <div class="modal-producto" id="modal-producto">
+        <div class="modal-content">
+            <button class="close-modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-producto-body">
+                <div class="modal-producto-imagen">
+                    <img src="" alt="Imagen del producto" id="modal-producto-img">
+                </div>
+                <div class="modal-producto-info">
+                    <h2 id="modal-producto-titulo"></h2>
+                    <p class="modal-producto-precio" id="modal-producto-precio"></p>
+                    <div class="modal-producto-descripcion">
+                        <h3>Descripción</h3>
+                        <p id="modal-producto-descripcion"></p>
+                    </div>
+                    <div class="modal-producto-caracteristicas">
+                        <h3>Características</h3>
+                        <ul id="modal-producto-caracteristicas">
+                            <!-- Las características se agregarán dinámicamente -->
+                        </ul>
+                    </div>
+                    <div class="modal-producto-acciones">
+                        <button class="btn-carrito" id="modal-producto-agregar">
+                            <i class="fas fa-shopping-cart"></i>
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+  <!-- Boton para ver el catalogo -->
+  <div class="btn-catalogo">
+    <a href="catalogo/catalogo.html" class="btn-main"><button >Ver Catalogo Completo</button></a>
+  </div>
+
+
+
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Bike Store</h3>
+                <p> todos los derechos reservados - 2025 -  <br>creators Wisner Martinez ||<br> Roy Arenas ||<br>Jose Asprilla ||</p>
+            </div>
+            <div class="footer-section" id="contacto">
+                <h3>Contacto</h3>
+                <p><a href="https://wa.me/573178901234">Teléfono: +57 317 890 1234</a></p>
+                <p><a href=""><Email: href="mailto:info@bikestore.com">Email: info@bikestore.com</a></p>
+                <p><a href="https://maps.app.goo.gl/1234567890">Dirección: Calle 123, Palmira, Valle del Cauca</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos en nuestras redes sociales</h3>
+                <ul class="social-media">
+                    <li class="social-links"><a href="https://wa.me/573178901234" target="_blank"><i class='bx bxl-whatsapp' style='color:#089800'></i> Whatsapp</a></li>
+                    <li class="social-links"><a href="https://www.instagram.com/bikestore" target="_blank"><i class='bx bxl-instagram' style='color:#9f0795'></i> Instagram</a></li>
+                    <li class="social-links"><a href="https://www.facebook.com/bikestore" target="_blank"><i class='bx bxl-facebook' style='color:#034566'></i> Facebook</a></li>
+                </ul>       
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
