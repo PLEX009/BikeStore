@@ -12,39 +12,52 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- css stylesheet -->
     <link rel="stylesheet" href="../assets/css/style-login.css">
-    
-
 </head>
 
 <body>
-
     <div class="container" id="container">
+
+
         <div class="form-container sign-up-container">
-            <form action="" method="post">
+            <form action="http://localhost:3000/registrar" method="post" id="registroForm">
                 <h1>Crear Usuario</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
                 <span>Usar email personal para el registro</span>
                 <div class="infield">
-                    <input type="Number" id="ident" name="ident" placeholder="Numero de Identifiación" required />
-                    <label></label>
+                    <input type="hidden" id="id_rol" name="id_rol" value="1" required/>
+                    <input type="text" id="nom_user" name="nom_user" placeholder="Nombre Completo" required/>
                 </div>
                 <div class="infield">
-                    <input type="email"  id="email" name="email" placeholder="Email" name="Correo" required/>
-                    <label></label>
+                    <select id="tipo_ident" name="tipo_ident" required>
+                        <option value="" disabled selected>Seleccione tipo de identificación</option>
+                        <option value="cedula_ciudadania">Cédula de Ciudadanía</option>
+                        <option value="cedula_extranjeria">Cédula de Extranjería</option>
+                        <option value="tarjeta_identidad">Tarjeta de Identidad</option>
+                        <option value="otro">Otro</option>
+                    </select>
                 </div>
                 <div class="infield">
-                    <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required/>
-                    <label></label>
+                    <input type="text" id="num_ident" name="num_ident" placeholder="Número Identificación" required/>
                 </div>
-                <button>Registrar</button>
+                <div class="infield">
+                    <input type="text" id="telefono" name="telefono" placeholder="Numero de Telefono" required/>
+                </div>
+                <div class="infield">
+                    <input type="text" id="direccion" name="direccion" placeholder="Direccion de Residencia" required/>
+                </div>
+                <div class="infield">
+                    <input type="email" id="email" name="email" placeholder="Correo Electronico" required/>
+                </div>
+                <div class="infield">
+                    <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese una Contraseña" required/>
+                </div>
+                <button type="submit">Registrar</button>
             </form>
         </div>
+
+
+
         <div class="form-container sign-in-container">
-            <form action="sesion_persona.php" method="post">
+            <form action="http://localhost:3000/login" method="post" id="loginForm">
                 <h1>Iniciar Sesión</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -54,7 +67,7 @@
                 <span>Usar una cuenta previamente registrada</span>
                 <br>
                 <div class="infield">
-                    <input type="text" id="ident" name="ident" placeholder="Numero de Identificacion" required />
+                    <input type="text" id="num_ident" name="num_ident" placeholder="Número de Identificación" required />
                     <label></label>
                 </div>
                 <div class="infield">
@@ -62,9 +75,8 @@
                     <label></label>
                 </div>
                 <a href="#" class="forgot">Olvidaste tu contraseña?</a>
-                <button>Iniciar Sesion</button>
+                <button type="submit">Iniciar Sesion</button>
             </form>
-
         </div>
         <div class="overlay-container" id="overlayCon">
             <div class="overlay">
@@ -82,28 +94,23 @@
             <button id="overlayBtn"></button>
         </div>
     </div>
-    
-   
-    
 
     <!-- js code -->
-    <script>
 
+    <script src="../assets/js/validaciones.js"></script>
+    <script>
         const container = document.getElementById('container');
         const overlayCon = document.getElementById('overlayCon');
         const overlayBtn = document.getElementById('overlayBtn');
 
         overlayBtn.addEventListener('click', () => {
             container.classList.toggle('right-panel-active');
-
             overlayBtn.classList.remove('btnSacled');
             window.requestAnimationFrame(() => {
                 overlayBtn.classList.add('btnScaled')
             })
         });
-
     </script>
-
 </body>
 
 </html>

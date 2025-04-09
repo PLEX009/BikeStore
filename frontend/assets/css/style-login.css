@@ -10,11 +10,13 @@
     --linear-grad: linear-gradient(to right, #773b0d, #773b0d);
     --grad-clr1: #773b0d;
     --grad-clr2: #773b0d;
+    --button-color: #F28500;
 }
 
 body {
     height: 100vh;
-    background: #f6f5f7;
+    background: url(../img/header-bg.png);
+    object-fit: cover;
     display: grid;
     place-content: center;
     font-family: 'Poppins', sans-serif;
@@ -22,8 +24,8 @@ body {
 
 .container{
     position: relative;
-    width: 850px;
-    height: 500px;
+    width: 58rem;
+    height: 40rem;
     background-color: #FFF;
     box-shadow: 25px 30px 55px #5557;
     border-radius: 13px;
@@ -115,9 +117,14 @@ a{
     margin: 15px 0px;
 }
 
+a:hover{
+color: var(--button-color);
+
+}
+
 a.forgot{
     padding-bottom: 3px;
-    border-bottom: 2px solid #EEE;
+    border-bottom: 2px solid var(--grad-clr1);
 }
 
 
@@ -137,6 +144,7 @@ button{
 .form-container button{
     margin-top: 17px;
     transition: 80ms ease-in;
+    cursor: pointer;
 }
 
 .form-container button:hover{
@@ -157,14 +165,15 @@ button{
 #overlayBtn{
     cursor: pointer;
     position: absolute;
-    left: 50%;
-    top: 304px;
-    transform: translateX(-50%);
+    left: 54%;
+    top: 374px;
+    transform: translateX(-53%);
     width: 143.67px;
     height: 40px;
     border: 1px solid #FFF;
     background: transparent;
     border-radius: 20px;
+    
 }
 .overlay{
     position: relative;
@@ -253,6 +262,7 @@ p{
 
 .btnScaled{
     animation: sacleBtn 0.6s;
+   
 }
 
 @keyframes scaleBtn{
@@ -265,4 +275,25 @@ p{
     100%{
         width: 143.67;
     }
+}
+
+.error-message {
+    color: #ff3860;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+    text-align: left;
+}
+
+.infield {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.infield input:invalid {
+    border-color: #ff3860;
+}
+
+.infield input:valid {
+    border-color: #09c372;
 }

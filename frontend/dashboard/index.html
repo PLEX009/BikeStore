@@ -1,96 +1,91 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible"content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Admin | BikeStore</title>
-    <!--Ruta para logo de la pestaña-->
-    <link rel="icon" href="../assets/img/logo_favicon.png" type="image/x-icon">
-    <!--Enlace codigo de material para iconos-->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <!--Ruta archivo de estilos para dashboard-->
-    <link rel="stylesheet" href="../assets/css/style_admin.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin | BikeStore</title>
+  <link rel="icon" href="../assets/img/logo_favicon.png" type="image/x-icon">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="../assets/css/style_admin.css">
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar active">
-            <div class="head">
-                <div class="user-img">
-                    <img src="../assets/img/chatBot.jpg" alt=""> 
-                </div>
-                <div class="user-details">
-                    <p class="cargo">Web developer</p>
-                    <p class="name">John Doe</p>
-                </div>
-            </div>
-            <div class="nav">
-                <div class="menu">
-
-                    <p class="title">Dashboard</p>
-
-                        <ul>
-                            <li class="active">
-                                <a href="">
-                                    <i class="icon ph-bold ph-house-simple"></i>
-                                    <span class="text">Pagina Principal</span>
-                                </a>
-                            </li>
-
-                            <p class="title">Submodulos</p>
-
-                            <li>
-                                <a href="">
-                                    <i class="icon ph-bold ph-lock"></i>
-                                    <span class="text">Control de Accesos</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="icon ph-bold ph-tag"></i>
-                                    <span class="text">Stock de Productos</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="">
-                                    <i class="icon ph-bold ph-activity"></i>
-                                    <span class="text">Resumen Comercial</span>
-                                    <i class="arrow ph-bold ph-caret-down"></i>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="">
-                                            <span class="text">Resumen de Ventas</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <span class="text">Clientes Frecuentes</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <p class="title">Autenticación</p>
-                            
-                            <li>
-                                <a href="">
-                                    <i class="icon ph-bold ph-power"></i>
-                                    <span class="text">Terminar Sesión</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="">
-                                    <i class="icon ph-bold ph-lock-key"></i>
-                                    <span class="text">Cambiar Contraseña</span>
-                                </a>
-                            </li>
-                        </ul>
-                </div>
-            </div>
+  <div class="container">
+    <div class="sidebar">
+      <div class="menu-btn">
+        <i class="ph-bold ph-x"></i>
+      </div>
+      <div class="head">
+        <div class="user-img">
+          <img src="../assets/img/chatBot.jpg" alt="">
         </div>
+        <div class="user-details">
+          <p class="cargo">Web developer</p>
+          <p class="name">John Doe</p>
+        </div>
+      </div>
+
+      <div class="nav">
+        <div class="menu">
+          <p class="title">MAIN</p>
+          <ul>
+            <li class="active">
+              <a href="#">
+                <i class="icon ph-bold ph-house-simple"></i>
+                <span class="text">Pagina Principal</span>
+              </a>
+            </li>
+          </ul>
+
+          <p class="title">PAGES</p>
+          <ul>
+            <li>
+              <a href="#">
+                <i class="icon ph-bold ph-lock"></i>
+                <span class="text">Control de Accesos</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="icon ph-bold ph-tag"></i>
+                <span class="text">Stock de Productos</span>
+              </a>
+            </li>
+            <li>
+                <a href="#">
+                  <i class="icon ph-bold ph-activity"></i>
+                  <span class="text">Resumen Comercial</span>
+                  <i class="arrow ph-bold ph-caret-down"></i>
+                </a>
+                <ul class="sub-menu">
+                  <li><a href="#"><span class="text">Resumen de Ventas</span></a></li>
+                  <li><a href="#"><span class="text">Clientes Frecuentes</span></a></li>
+                </ul>
+              </li>
+          </ul>
+        </div>
+
+        <!-- Autenticación al fondo -->
+        <div class="menu-auth">
+          <p class="title">AUTH</p>
+          <ul>
+            <li>
+              <a href="#">
+                <i class="icon ph-bold ph-power"></i>
+                <span class="text">Terminar Sesión</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="icon ph-bold ph-lock-key"></i>
+                <span class="text">Cambiar Contraseña</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <script src="../assets/js/nav-menu.js"></script>
+  </div>
+  <script src="../assets/js/nav-menu.js"></script>
 </body>
 </html>
