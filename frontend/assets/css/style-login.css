@@ -34,18 +34,24 @@ body {
 
 .form-container{
     position: absolute;
-    width: 60%;
+    width: 50%;
     height: 100%;
     padding: 0px 40px;
     transition: all 0.6s ease-in-out;
 }
 
 .sign-up-container{
-    opacity: 0;
+    right: 0;
     z-index: 1;
+    transform: translateX(100%);
+}
+
+.sign-up-container input{
+    width: 100%;
 }
 
 .sign-in-container{
+    left: 0;
     z-index: 2;
 }
 
@@ -141,6 +147,17 @@ button{
 
 }
 
+.title-form{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--grad-clr1);
+}
+
+.email-span{
+    text-align: center;
+}
+
 .form-container button{
     margin-top: 17px;
     transition: 80ms ease-in;
@@ -154,9 +171,9 @@ button{
 
 .overlay-container{
     position: absolute;
-    top: 0px;
-    left: 60%;
-    width: 40%;
+    top: 0;
+    left: 50%;
+    width: 50%;
     height: 100%;
     overflow: hidden;
     transition: transform 0.6s ease-in-out;
@@ -167,7 +184,7 @@ button{
     position: absolute;
     left: 54%;
     top: 374px;
-    transform: translateX(-53%);
+    transform: translateX(-64%);
     width: 143.67px;
     height: 40px;
     border: 1px solid #FFF;
@@ -175,13 +192,21 @@ button{
     border-radius: 20px;
     
 }
+
+.btn-registro-mobile2{
+   position: relative;
+   left: -0.1rem;
+   top: 0.6rem;
+}
+
 .overlay{
     position: relative;
     background: var(--linear-grad);
     color: #FFF;
-    left: -150%;
+    left: -100%;
     height: 100%;
-    width:250%;
+    width: 200%;
+    transform: translateX(0);
     transition: transform 0.6s ease-in-out;
 }
 
@@ -194,18 +219,17 @@ button{
     padding: 0px 40px;
     text-align: center;
     height: 100%;
-    width: 340px;
-    transition: 0.6s ease-in-out;
+    width: 50%;
+    transition: transform 0.6s ease-in-out;
 }
 
 .overlay-left{
-    right: 60%;
-    transform: translateX(-12%);
+    transform: translateX(-20%);
 }
 
 .overlay-right{
     right: 0;
-    transform: translateX(0%);
+    transform: translateX(0);
 }
 
 .overlay-panel h1{
@@ -225,28 +249,27 @@ p{
 }
 
 .right-panel-active .overlay-container{
-    transform: translateX(-150%);
+    transform: translateX(-100%);
 }
 
 .right-panel-active .overlay{
     transform: translateX(50%);
 }
 .right-panel-active .overlay-left{
-    transform: translateX(25%);
+    transform: translateX(0);
 }
 .right-panel-active .overlay-right{
-    transform: translateX(35%);
+    transform: translateX(20%);
 }
 
 .right-panel-active .sign-in-container{
-    transform: translateX(25%);
+    transform: translateX(100%);
     opacity: 0;
 }
 .right-panel-active .sign-up-container{
-    transform: translateX(66.7%);
+    transform: translateX(0);
     opacity: 1;
     z-index: 5;
-    animation: show 0.6s;
 }
 
 @keyframes show{
@@ -277,6 +300,7 @@ p{
     }
 }
 
+
 .error-message {
     color: #ff3860;
     font-size: 12px;
@@ -297,3 +321,241 @@ p{
 .infield input:valid {
     border-color: #09c372;
 }
+
+/* Contenedor del formulario de registro */
+.sign-up-container form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+}
+
+/* Grupo de inputs para número de identificación y teléfono */
+.input-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Grupo de inputs para dirección y correo */
+.input-group-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Ajuste para los inputs individuales */
+.infield {
+    margin: 0;
+}
+
+.infield input,
+.infield select {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #f3f3f3;
+    border: none;
+    outline: none;
+}
+
+
+
+
+#registroForm input{
+   min-width: 13rem;
+    width: 100%;
+    border-radius: 0.4rem;
+}
+
+/* Ajuste para el botón de registro */
+.sign-up-container button {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+/* Modificcion al boton de contraseña del formulario de Login */
+.infield-1{
+    margin-top: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--grad-clr1);
+}
+.infield-2{
+   margin-top: 20px;
+   width: 100%;
+    margin-bottom: 20px;
+ border-bottom: 2px solid var(--grad-clr1);
+}
+
+/* Estilos para el botón de registro en móviles */
+.btn-registro-mobile {
+    border-radius: 20px;
+    border: 1px solid var(--grad-clr1);
+    background: var(--grad-clr2);
+    color: #FFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 15px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.btn-registro-mobile:hover {
+    background: var(--grad-clr1);
+    color: white;
+}
+
+/* Estilos para la modal de registro en móviles */
+.modal-registro {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--grad-clr1);
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: var(--button-color);
+}
+
+.close-form {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: var(--grad-clr1);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 10;
+}
+
+.close-form:hover {
+    color: var(--button-color);
+}
+
+/* Media Queries para responsive */
+@media (max-width: 992px) {
+    .container {
+        width: 45rem;
+    }
+
+    .form-container {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .overlay-container {
+        display: none;
+    }
+
+    .sign-in-container {
+        opacity: 1;
+        transform: none;
+    }
+
+    /* Mostrar el botón de registro desde 992px */
+    .btn-registro-mobile {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 35rem;
+        height: auto;
+        min-height: 40rem;
+    }
+     
+   
+    .input-group,
+    .input-group-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .social-container {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .social-container a {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #registroForm {
+       
+    overflow-y: auto;
+    overflow-x: hidden; /* Opcional: oculta el scroll horizontal */
+ /* Opcional: espacio para que no se corte el contenido con el scroll */
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        width: 25rem;
+        margin: 1rem;
+    }
+
+    .form-container form {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .infield input,
+    .infield select {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    button {
+        padding: 12px 30px;
+        font-size: 0.9rem;
+    }
+
+    .modal-content {
+        padding: 1rem;
+    }
+}
+
+/* Ocultar elementos en desktop */
+@media (min-width: 993px) {
+    .btn-registro-mobile {
+        display: none;
+    }
+
+    .modal-registro {
+        display: none !important;
+    }
+}
+
+

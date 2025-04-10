@@ -24,6 +24,8 @@
         <script src="../function.js" defer></script>
     </head>
 <body>
+
+
         <!-- Menú del carrito -->
         <div class="carrito-menu">
             <div class="carrito-content">
@@ -53,14 +55,15 @@
                             <li><i class="fas fa-check-circle"></i> Atención personalizada al cliente</li>
                             <li><i class="fas fa-check-circle"></i> Compromiso con el medio ambiente</li>
                             <li><i class="fas fa-check-circle"></i> Innovación constante</li>
+                            
                         </ul>
-                        <div class="modal-btn">
-                            <button>Ver Catálogo</button>
-                        </div>
+                        
                     </div>
+                    
                     <div class="modal-imagen">
                         <img src="../assets/img/bici3main.jpg" alt="Nuestra tienda">
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -69,6 +72,8 @@
         <header>
             <nav class="navbar">
                 <!-- Logo -->
+               
+                
                 <div class="logo-container">
                     <a href="../index.html">
                         <img src="../assets/img/Logo-bikeStore.jpg" alt="Logo Bike Store" class="logo">
@@ -76,7 +81,7 @@
                 </div>
 
                 <!-- Botón hamburguesa para móvil -->
-                <div class="hamburger" onclick="toggleMenu()">
+                <div class="hamburger">
                     <div></div>
                     <div></div>
                     <div></div>
@@ -92,15 +97,19 @@
 
                     <!-- Enlaces de navegación -->
                     <ul class="nav-links" id="nav-menu">
+                        <li><a href="../index.html" class="inicio-link" title="Inicio"><i class="fas fa-home"></i></a></li>
                         <li class="dropdown">
                             <a href="#">
                                 Categorías <i class="fas fa-chevron-down"></i>
                             </a>
                             <div class="dropdown-content">
-                                <a href="#">Bicicletas de Montaña</a>
-                                <a href="#">Bicicletas de Carretera</a>
-                                <a href="#">Bicicletas Eléctricas</a>
-                                <a href="#">Bicicletas Urbanas</a>
+                                <a href="#" data-categoria="todas">Todas las Bicicletas</a>
+                                <a href="#" data-categoria="montana">Bicicletas de Montaña</a>
+                                <a href="#" data-categoria="carretera">Bicicletas de Carretera</a>
+                                <a href="#" data-categoria="electrica">Bicicletas Eléctricas</a>
+                                <a href="#" data-categoria="urbana">Bicicletas Urbanas</a>
+                                <a href="#" data-categoria="bmx">Bicicletas BMX</a>
+                                <a href="#" data-categoria="accesorios">Accesorios</a>
                             </div>
                         </li>
                         <li><a href="#" data-modal="quienes-somos">¿Quiénes Somos?</a></li>
@@ -110,12 +119,11 @@
                             <a href="#carrito" class="carrito"><i class="fas fa-shopping-cart"></i>Carrito</a>
                             <span class="count-carrito" id="cont-carrito">0</span>
                         </li>
-                        <li><a href="../login/log-in.html" class="login-btn"><i class="fas fa-user"></i> Iniciar Sesión</a></li>
+                        <li><a href="../login/login.html" class="login-btn"><i class="fas fa-user"></i> Iniciar Sesión</a></li>
                     </ul>
                 </div>
             </nav>
         </header>
-    
     <!-- Contenido principal del catálogo -->
     <main class="catalogo-container">
         <h1>CATÁLOGO</h1>
@@ -156,189 +164,9 @@
             </aside>
 
             <!-- Contenedor de productos -->
-            <div class="productos-container">
-                <div class="filtros-container">
-                    <!-- Filtros existentes -->
-                </div>
-                
-                <div class="productos-grid">
-                    <!-- Producto 1 -->
-                    <div class="producto-card" data-producto="0">
-                        <div class="producto-imagen">
-                            <img src="../assets/img/bici13.png" alt="Bicicleta de Montaña">
-                        </div>
-                        <div class="producto-info">
-                            <h3 class="producto-titulo">Bicicleta de Montaña</h3>
-                            <p class="producto-precio">$1,000.00</p>
-                            <div class="producto-acciones">
-                                <a href="#" class="btn-detalles">Ver Detalles</a>
-                                <button class="btn-carrito">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    Agregar al Carrito
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Producto 2 -->
-                    <div class="producto-card" data-producto="1">
-                        <div class="producto-imagen">
-                            <img src="../assets/img/bici9.png" alt="Bicicleta de Ruta">
-                        </div>
-                        <div class="producto-info">
-                            <h3 class="producto-titulo">Bicicleta de Ruta</h3>
-                            <p class="producto-precio">$1,500.00</p>
-                            <div class="producto-acciones">
-                                <a href="#" class="btn-detalles">Ver Detalles</a>
-                                <button class="btn-carrito">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    Agregar al Carrito
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Producto 3 -->
-                    <div class="producto-card" data-producto="2">
-                        <div class="producto-imagen">
-                            <img src="../assets/img/bici8.png" alt="Bicicleta Urbana">
-                        </div>
-                        <div class="producto-info">
-                            <h3 class="producto-titulo">Bicicleta Urbana</h3>
-                            <p class="producto-precio">$800.00</p>
-                            <div class="producto-acciones">
-                                <a href="#" class="btn-detalles">Ver Detalles</a>
-                                <button class="btn-carrito">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    Agregar al Carrito
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Producto 4 -->
-                    <div class="producto-card" data-producto="3">
-                        <div class="producto-imagen">
-                            <img src="../assets/img/bici7.png" alt="Bicicleta Eléctrica">
-                        </div>
-                        <div class="producto-info">
-                            <h3 class="producto-titulo">Bicicleta Eléctrica</h3>
-                            <p class="producto-precio">$2,000.00</p>
-                            <div class="producto-acciones">
-                                <a href="#" class="btn-detalles">Ver Detalles</a>
-                                <button class="btn-carrito">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    Agregar al Carrito
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Producto 5 -->
-                    <div class="producto-card" data-producto="4">
-                        <div class="producto-imagen">
-                            <img src="../assets/img/bici6.png" alt="Bicicleta de BMX">
-                        </div>
-                        <div class="producto-info">
-                            <h3 class="producto-titulo">Bicicleta de BMX</h3>
-                            <p class="producto-precio">$600.00</p>
-                            <div class="producto-acciones">
-                                <a href="#" class="btn-detalles">Ver Detalles</a>
-                                <button class="btn-carrito">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    Agregar al Carrito
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Producto 6 -->
-                    <div class="producto-card" data-producto="5">
-                        <div class="producto-imagen">
-                            <img src="../assets/img/bici5.png" alt="Bicicleta de Paseo">
-                        </div>
-                        <div class="producto-info">
-                            <h3 class="producto-titulo">Bicicleta de Paseo</h3>
-                            <p class="producto-precio">$500.00</p>
-                            <div class="producto-acciones">
-                                <a href="#" class="btn-detalles">Ver Detalles</a>
-                                <button class="btn-carrito">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    Agregar al Carrito
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Accesorios -->
-                    <div class="producto-card" data-categoria="accesorios" data-producto="6">
-                        <div class="producto-imagen">
-                            <img src="../assets/img/Accesorio6.png" alt="Casco de Bicicleta">
-                        </div>
-                        <div class="producto-info">
-                            <h3 class="producto-titulo">Casco de Seguridad</h3>
-                            <p class="producto-precio">$50.00</p>
-                            <div class="producto-acciones">
-                                <a href="#" class="btn-detalles">Ver Detalles</a>
-                                <button class="btn-carrito">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    Agregar al Carrito
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="producto-card" data-categoria="accesorios" data-producto="7">
-                        <div class="producto-imagen">
-                            <img src="../assets/img/Accesorio2.png" alt="Candado para Bicicleta">
-                        </div>
-                        <div class="producto-info">
-                            <h3 class="producto-titulo">Candado de Seguridad</h3>
-                            <p class="producto-precio">$30.00</p>
-                            <div class="producto-acciones">
-                                <a href="#" class="btn-detalles">Ver Detalles</a>
-                                <button class="btn-carrito">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    Agregar al Carrito
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="producto-card" data-categoria="accesorios" data-producto="8">
-                        <div class="producto-imagen">
-                            <img src="../assets/img/Accesorio7.png" alt="Luces para Bicicleta">
-                        </div>
-                        <div class="producto-info">
-                            <h3 class="producto-titulo">Kit de Luces LED</h3>
-                            <p class="producto-precio">$25.00</p>
-                            <div class="producto-acciones">
-                                <a href="#" class="btn-detalles">Ver Detalles</a>
-                                <button class="btn-carrito">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    Agregar al Carrito
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="producto-card" data-categoria="accesorios" data-producto="9">
-                        <div class="producto-imagen">
-                            <img src="../assets/img/Accesorio1.png" alt="Portabidones">
-                        </div>
-                        <div class="producto-info">
-                            <h3 class="producto-titulo">Portabidones</h3>
-                            <p class="producto-precio">$15.00</p>
-                            <div class="producto-acciones">
-                                <a href="#" class="btn-detalles">Ver Detalles</a>
-                                <button class="btn-carrito">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    Agregar al Carrito
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="productos-container" >
+                <div class="filtros-container" id="productos-container"  ></div>
+                <div class="productos-grid"></div>
             </div>
         </div>
 
@@ -400,6 +228,33 @@
             </div>
         </div>
     </main>
+
+
+     <!-- Footer -->
+     <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Bike Store</h3>
+                <p> todos los derechos reservados - 2025 -  <br>creators Wisner Martinez ||<br> Roy Arenas ||<br>Jose Asprilla ||</p>
+            </div>
+            <div class="footer-section" id="contacto">
+                <h3>Contacto</h3>
+                <p><a href="https://wa.me/573178901234">Teléfono: +57 317 890 1234</a></p>
+                <p><a href=""><Email: href="mailto:info@bikestore.com">Email: info@bikestore.com</a></p>
+                <p><a href="https://maps.app.goo.gl/1234567890">Dirección: Calle 123, Palmira, Valle del Cauca</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos en nuestras redes sociales</h3>
+                <ul class="social-media">
+                    <li class="social-links"><a href="https://wa.me/573178901234" target="_blank"><i class='bx bxl-whatsapp' style='color:#089800'></i> Whatsapp</a></li>
+                    <li class="social-links"><a href="https://www.instagram.com/bikestore" target="_blank"><i class='bx bxl-instagram' style='color:#9f0795'></i> Instagram</a></li>
+                    <li class="social-links"><a href="https://www.facebook.com/bikestore" target="_blank"><i class='bx bxl-facebook' style='color:#034566'></i> Facebook</a></li>
+                </ul>       
+            </div>
+        </div>
+    </footer>
+   
+    <script src="../assets/conn/mostrar.js"></script>
 </body>
 <script src="../assets/js/catalogo.js"></script>
 </html>

@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sesion Persona</title>
+    <title>BikeStore | Incio de Sesion</title>
+    <link rel="icon" href="../assets/img/LogoIcono.ico" class="icono">
     <!-- font awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -16,100 +17,111 @@
 
 <body>
     <div class="container" id="container">
-
-
+        <!-- Formulario de Registro -->
         <div class="form-container sign-up-container">
             <form action="http://localhost:3000/registrar" method="post" id="registroForm">
-                <h1>Crear Usuario</h1>
-                <span>Usar email personal para el registro</span>
+                <span class="close-form" onclick="toggleForms()">&times;</span>
+                <h1 class="title-form">Crear Usuario</h1>
+                <span class="email-span">Usar email personal para el registro</span>
+                
                 <div class="infield">
                     <input type="hidden" id="id_rol" name="id_rol" value="1" required/>
                     <input type="text" id="nom_user" name="nom_user" placeholder="Nombre Completo" required/>
+                    <span id="nom_userError" class="error-message"></span>
+                    <label></label>
                 </div>
-                <div class="infield">
-                    <select id="tipo_ident" name="tipo_ident" required>
-                        <option value="" disabled selected>Seleccione tipo de identificación</option>
-                        <option value="cedula_ciudadania">Cédula de Ciudadanía</option>
-                        <option value="cedula_extranjeria">Cédula de Extranjería</option>
-                        <option value="tarjeta_identidad">Tarjeta de Identidad</option>
-                        <option value="otro">Otro</option>
-                    </select>
+
+                <div class="input-group">
+                    <div class="infield">
+                        <select id="tipo_ident" name="tipo_ident" required>
+                            <option value="" disabled selected>Tipo de identificación</option>
+                            <option value="cedula_ciudadania">Cédula de Ciudadanía</option>
+                            <option value="cedula_extranjeria">Cédula de Extranjería</option>
+                            <option value="tarjeta_identidad">Tarjeta de Identidad</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <label></label>
+                    </div>
+                    <div class="infield">
+                        <input type="text" id="num_ident" name="num_ident" placeholder="Número Identificación" required/>
+                        <span id="num_identError" class="error-message"></span>
+                        <label></label>
+                    </div>
                 </div>
-                <div class="infield">
-                    <input type="text" id="num_ident" name="num_ident" placeholder="Número Identificación" required/>
+
+                <div class="input-group">
+                    <div class="infield">
+                        <input type="text" id="telefono" name="telefono" placeholder="Numero de Telefono" required/>
+                        <span id="telefonoError" class="error-message"></span>
+                        <label></label>
+                    </div>
+                    <div class="infield">
+                        <input type="text" id="direccion" name="direccion" placeholder="Direccion de Residencia" required/>
+                        <label></label>
+                    </div>
                 </div>
-                <div class="infield">
-                    <input type="text" id="telefono" name="telefono" placeholder="Numero de Telefono" required/>
+
+                <div class="input-group-2">
+                    <div class="infield">
+                        <input type="email" id="email" name="email" placeholder="Correo Electronico" required/>
+                        <span id="emailError" class="error-message"></span>
+                        <label></label>
+                    </div>
+                    <div class="infield">
+                        <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese una Contraseña" required/>
+                        <span id="contrasenaError" class="error-message"></span>
+                        <label></label>
+                    </div>
                 </div>
-                <div class="infield">
-                    <input type="text" id="direccion" name="direccion" placeholder="Direccion de Residencia" required/>
-                </div>
-                <div class="infield">
-                    <input type="email" id="email" name="email" placeholder="Correo Electronico" required/>
-                </div>
-                <div class="infield">
-                    <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese una Contraseña" required/>
-                </div>
+
                 <button type="submit">Registrar</button>
             </form>
         </div>
 
-
-
+        <!-- Formulario de Inicio de Sesión -->
         <div class="form-container sign-in-container">
             <form action="http://localhost:3000/login" method="post" id="loginForm">
                 <h1>Iniciar Sesión</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <span>Usar una cuenta previamente registrada</span>
-                <br>
-                <div class="infield">
+                <span>Usar una cuenta previamente registrada</span><br><br>
+                <div class="infield-1">
                     <input type="text" id="num_ident" name="num_ident" placeholder="Número de Identificación" required />
                     <label></label>
                 </div>
-                <div class="infield">
+                <div class="infield-2">
                     <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required />
                     <label></label>
                 </div>
-                <a href="#" class="forgot">Olvidaste tu contraseña?</a>
-                <button type="submit">Iniciar Sesion</button>
+                <a href="#" class="forgot">¿Olvidaste tu contraseña?</a>
+                <button type="submit">Iniciar Sesión</button>
+                <button type="button" class="btn-registro-mobile" onclick="toggleForms()">Registrarse</button>
             </form>
         </div>
+
         <div class="overlay-container" id="overlayCon">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
                     <h1>¡Registrate!</h1>
                     <p>Ingresa tu informacion personal para completar el registro</p>
-                    <button>Inicia Sesion</button>
+                    <button onclick="toggleForms()">Inicia Sesion</button>
                 </div>
                 <div class="overlay-panel overlay-right">
                     <h1>¡Inicia Sesión!</h1>
                     <p>Ingresa tu informacion personal para iniciar sesión</p>
-                    <button>Registrate</button>
+                    <button onclick="toggleForms()" class="btn-registro-mobile2">Registrate</button>
                 </div>
             </div>
-            <button id="overlayBtn"></button>
+            <button id="overlayBtn" onclick="toggleForms()"></button>
         </div>
     </div>
 
     <!-- js code -->
 
-    <script src="../assets/js/validaciones.js"></script>
+    <script src="../assets/conn/validaciones.js"></script>
     <script>
-        const container = document.getElementById('container');
-        const overlayCon = document.getElementById('overlayCon');
-        const overlayBtn = document.getElementById('overlayBtn');
-
-        overlayBtn.addEventListener('click', () => {
+        function toggleForms() {
+            const container = document.getElementById('container');
             container.classList.toggle('right-panel-active');
-            overlayBtn.classList.remove('btnSacled');
-            window.requestAnimationFrame(() => {
-                overlayBtn.classList.add('btnScaled')
-            })
-        });
+        }
     </script>
 </body>
 

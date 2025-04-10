@@ -2,7 +2,7 @@
 // Se importa el módulo 'express' para crear el servidor y manejar rutas
 const express = require('express');
 
-// Se importa 'body-parser' para poder leer los datos que se envían en el cuerpo de las solicitudes (POST, PUT, etc.)
+// Se importa 'body-parser' para poder leer los datos que se envian en el cuerpo de las solicitudes (POST, PUT, etc.)
 const bodyParser = require('body-parser');
 
 // Se importa 'cors' para permitir solicitudes de otros dominios (Cross-Origin Resource Sharing)
@@ -11,10 +11,10 @@ const cors = require('cors');
 // Se importa el archivo de conexión a la base de datos (suponiendo que hay una conexión configurada en './conexion')
 const conexion = require('./conexion'); 
 
-// Se crea una instancia de la aplicación Express
+// Se crea una instancia de la aplicacion Express
 const app = express();
 
-// Se define el puerto en el que se ejecutará el servidor
+// Se define el puerto en el que se ejecutara el servidor
 // Permite solicitudes CORS (de otros dominios)
 app.use(cors());
 
@@ -41,8 +41,6 @@ app.post('/login', (req, res) => {
       }
     });
   });
-
-  
   
 app.listen(puerto, () => {
     console.log(`Servidor corriendo en http://localhost:${puerto}`);

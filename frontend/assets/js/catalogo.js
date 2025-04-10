@@ -4,9 +4,11 @@ function toggleMenu() {
     const hamburger = document.querySelector('.hamburger');
     const body = document.body;
     
-    navContainer.classList.toggle('active');
-    hamburger.classList.toggle('active');
-    body.classList.toggle('nav-open');
+    if (navContainer && hamburger) {
+        navContainer.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        body.classList.toggle('nav-open');
+    }
 }
 
 // Función para inicializar el menú desplegable
@@ -23,27 +25,64 @@ function initDropdown() {
     });
 }
 
+// Función para buscar productos en la barra 
+function buscarProductos(termino) {
+    const productos = document.querySelectorAll('.producto-card');
+    const terminoBusqueda = termino.toLowerCase().trim();
+    let productosEncontrados = 0;
+    
+    productos.forEach(producto => {
+        const titulo = producto.querySelector('.producto-titulo').textContent.toLowerCase();
+        
+        if (titulo.includes(terminoBusqueda)) {
+            producto.style.display = 'block';
+            productosEncontrados++;
+        } else {
+            producto.style.display = 'none';
+        }
+    });
+
+    // Mostrar mensaje si no hay resultados
+    const contenedorProductos = document.querySelector('.productos-grid');
+    let mensajeNoResultados = contenedorProductos.querySelector('.no-resultados');
+    
+    if (productosEncontrados === 0 && terminoBusqueda !== '') {
+        if (!mensajeNoResultados) {
+            mensajeNoResultados = document.createElement('div');
+            mensajeNoResultados.className = 'no-resultados';
+            mensajeNoResultados.innerHTML = `
+                <p>0 Productos encontrados</p>
+            `;
+            contenedorProductos.appendChild(mensajeNoResultados);
+        }
+    } else if (mensajeNoResultados) {
+        mensajeNoResultados.remove();
+    }
+}
+
 // Función para inicializar la búsqueda
 function initSearch() {
     const searchInput = document.getElementById('search-input');
     const searchButton = document.querySelector('.search-button');
     
     if (searchInput && searchButton) {
-        searchButton.addEventListener('click', () => {
-            const searchTerm = searchInput.value.trim();
-            if (searchTerm) {
-                // Implementar la lógica de búsqueda
-                console.log('Buscando:', searchTerm);
-            }
+        // Buscar en tiempo real mientras se escribe
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value;
+            buscarProductos(searchTerm);
         });
 
+        // Buscar al hacer clic en el botón
+        searchButton.addEventListener('click', () => {
+            const searchTerm = searchInput.value;
+            buscarProductos(searchTerm);
+        });
+
+        // Buscar al presionar Enter
         searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                const searchTerm = searchInput.value.trim();
-                if (searchTerm) {
-                    // Implementar la lógica de búsqueda
-                    console.log('Buscando:', searchTerm);
-                }
+            if (e.key == 'Enter') {
+                const searchTerm = searchInput.value;
+                buscarProductos(searchTerm);
             }
         });
     }
@@ -434,6 +473,49 @@ function filtrarPorCategoria(categoria) {
     });
 }
 
+// Función para inicializar el dropdown del navbar
+function initNavbarDropdown() {
+    const dropdown = document.querySelector('.dropdown');
+    const dropdownContent = document.querySelector('.dropdown-content');
+    const dropdownLinks = dropdownContent.querySelectorAll('a');
+    
+    // Asegurar que el dropdown esté oculto al cargar
+    dropdownContent.style.display = 'none';
+    
+    // Mostrar/ocultar dropdown al hacer hover
+    dropdown.addEventListener('mouseenter', () => {
+        dropdownContent.style.display = 'block';
+    });
+    
+    dropdown.addEventListener('mouseleave', () => {
+        dropdownContent.style.display = 'none';
+    });
+    
+    // Filtrar productos al hacer clic en los enlaces del dropdown
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const categoria = link.getAttribute('data-categoria');
+            
+            // Remover clase active de todos los botones de categoría
+            const categoriaBtns = document.querySelectorAll('.categoria-btn');
+            categoriaBtns.forEach(btn => btn.classList.remove('active'));
+            
+            // Agregar clase active al botón correspondiente
+            const btnCorrespondiente = document.querySelector(`.categoria-btn[data-categoria="${categoria}"]`);
+            if (btnCorrespondiente) {
+                btnCorrespondiente.classList.add('active');
+            }
+            
+            // Filtrar productos
+            filtrarPorCategoria(categoria);
+            
+            // Ocultar dropdown después de hacer clic
+            dropdownContent.style.display = 'none';
+        });
+    });
+}
+
 // Inicialización cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
     // Cargar el carrito desde localStorage
@@ -447,6 +529,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hamburger) {
         hamburger.addEventListener('click', toggleMenu);
     }
+    
+    // Cerrar menú al hacer clic en un enlace
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 992) {
+                toggleMenu();
+            }
+        });
+    });
     
     // Inicializar modal de "Quiénes Somos"
     const quienesSomosBtn = document.getElementById('quienes-somos-btn');
@@ -574,7 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Inicializar el menú desplegable
+    // Inicializar menú desplegable
     initDropdown();
 
     // Inicializar el modal Quiénes Somos
@@ -620,4 +712,7 @@ document.addEventListener('DOMContentLoaded', () => {
             filtrarPorCategoria(categoria);
         });
     });
+
+    // Inicializar dropdown del navbar
+    initNavbarDropdown();
 });
