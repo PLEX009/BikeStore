@@ -1155,13 +1155,14 @@ body {
 
 /* Secciones del footer */
 .footer-section {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .footer-section h3 {
-    font-size: 1.9rem;
+    font-size: 2rem;
     margin-bottom: 1.5rem;
     position: relative;
+    margin-top: 2rem;
     padding-bottom: 0.5rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -1174,33 +1175,34 @@ body {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 50px;
+    width: 8rem;
     height: 2px;
     background-color: var(--secondary-color);
     transition: width 0.3s ease;
 }
 
 .footer-section:hover h3::after {
-    width: 100px;
+    width: 12rem;
 }
 
 .footer-section p {
     line-height: 1.6;
     margin-bottom: 1rem;
-    opacity: 0.9;
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
 /* Enlaces del footer */
 .footer-links {
     list-style: none;
     padding: 0;
+    
 }
 
 .footer-links li {
     margin-bottom: 0.8rem;
     transform: translateX(0);
     transition: transform 0.3s ease;
+   
 }
 
 .footer-links li:hover {

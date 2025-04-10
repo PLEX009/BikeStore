@@ -8,6 +8,9 @@
         
         <!-- Favicon -->
         <link rel="icon" href="../assets/img/LogoIcono.ico" class="icono">
+
+          <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         
         <!-- Swiper CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -98,22 +101,9 @@
                     <!-- Enlaces de navegación -->
                     <ul class="nav-links" id="nav-menu">
                         <li><a href="../index.html" class="inicio-link" title="Inicio"><i class="fas fa-home"></i></a></li>
-                        <li class="dropdown">
-                            <a href="#">
-                                Categorías <i class="fas fa-chevron-down"></i>
-                            </a>
-                            <div class="dropdown-content">
-                                <a href="#" data-categoria="todas">Todas las Bicicletas</a>
-                                <a href="#" data-categoria="montana">Bicicletas de Montaña</a>
-                                <a href="#" data-categoria="carretera">Bicicletas de Carretera</a>
-                                <a href="#" data-categoria="electrica">Bicicletas Eléctricas</a>
-                                <a href="#" data-categoria="urbana">Bicicletas Urbanas</a>
-                                <a href="#" data-categoria="bmx">Bicicletas BMX</a>
-                                <a href="#" data-categoria="accesorios">Accesorios</a>
-                            </div>
-                        </li>
+                     
                         <li><a href="#" data-modal="quienes-somos">¿Quiénes Somos?</a></li>
-                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#contacto" alt="Contacto" class="contact-btn" title="Contacto">Contacto</a></li>
                         <!-- Carrito -->
                         <li class="contenedor-carrito">
                             <a href="#carrito" class="carrito"><i class="fas fa-shopping-cart"></i>Carrito</a>
@@ -142,7 +132,7 @@
                     </button>
                     <button class="categoria-btn" data-categoria="carretera">
                         <i class="fas fa-road"></i>
-                        Bicicletas de Carretera
+                        Bicicletas de Carretera 
                     </button>
                     <button class="categoria-btn" data-categoria="urbana">
                         <i class="fas fa-city"></i>
@@ -174,38 +164,17 @@
         <div class="resultados-busqueda"></div>
 
         <!-- Modal Detalles del Producto -->
-        <div class="modal-producto" id="modal-producto">
+        <div id="modal-detalle" class="modal-detalle">
             <div class="modal-content">
-                <button class="close-modal">
+                <button class="close-modal" id="close-modal-btn">
                     <i class="fas fa-times"></i>
                 </button>
-                <div class="modal-producto-body">
-                    <div class="modal-producto-imagen">
-                        <img src="../assets/img/bici13.png" alt="Imagen del producto" id="modal-producto-img">
-                    </div>
-                    <div class="modal-producto-info">
-                        <h2 id="modal-producto-titulo"></h2>
-                        <p class="modal-producto-precio" id="modal-producto-precio"></p>
-                        <div class="modal-producto-descripcion">
-                            <h3>Descripción</h3>
-                            <p id="modal-producto-descripcion"></p>
-                        </div>
-                        <div class="modal-producto-caracteristicas">
-                            <h3>Características</h3>
-                            <ul id="modal-producto-caracteristicas">
-                                <!-- Las características se agregarán dinámicamente -->
-                            </ul>
-                        </div>
-                        <div class="modal-producto-acciones">
-                            <button class="btn-carrito" id="modal-producto-agregar">
-                                <i class="fas fa-shopping-cart"></i>
-                                Agregar al Carrito
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <h2>Detalle del Producto</h2>
+                <div id="producto-detalle-info"></div>
             </div>
         </div>
+
+        
 
         <!-- Modal del Carrito -->
         <div class="overlay"></div>
@@ -257,4 +226,5 @@
     <script src="../assets/conn/mostrar.js"></script>
 </body>
 <script src="../assets/js/catalogo.js"></script>
+<script src="../assets/js/carrito.js"></script>
 </html>

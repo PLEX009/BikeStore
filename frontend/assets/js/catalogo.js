@@ -473,48 +473,6 @@ function filtrarPorCategoria(categoria) {
     });
 }
 
-// Función para inicializar el dropdown del navbar
-function initNavbarDropdown() {
-    const dropdown = document.querySelector('.dropdown');
-    const dropdownContent = document.querySelector('.dropdown-content');
-    const dropdownLinks = dropdownContent.querySelectorAll('a');
-    
-    // Asegurar que el dropdown esté oculto al cargar
-    dropdownContent.style.display = 'none';
-    
-    // Mostrar/ocultar dropdown al hacer hover
-    dropdown.addEventListener('mouseenter', () => {
-        dropdownContent.style.display = 'block';
-    });
-    
-    dropdown.addEventListener('mouseleave', () => {
-        dropdownContent.style.display = 'none';
-    });
-    
-    // Filtrar productos al hacer clic en los enlaces del dropdown
-    dropdownLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const categoria = link.getAttribute('data-categoria');
-            
-            // Remover clase active de todos los botones de categoría
-            const categoriaBtns = document.querySelectorAll('.categoria-btn');
-            categoriaBtns.forEach(btn => btn.classList.remove('active'));
-            
-            // Agregar clase active al botón correspondiente
-            const btnCorrespondiente = document.querySelector(`.categoria-btn[data-categoria="${categoria}"]`);
-            if (btnCorrespondiente) {
-                btnCorrespondiente.classList.add('active');
-            }
-            
-            // Filtrar productos
-            filtrarPorCategoria(categoria);
-            
-            // Ocultar dropdown después de hacer clic
-            dropdownContent.style.display = 'none';
-        });
-    });
-}
 
 // Inicialización cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {

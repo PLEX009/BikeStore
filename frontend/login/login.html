@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../assets/css/style-login.css">
 </head>
 
-<body>
+<body> 
     <div class="container" id="container">
         <!-- Formulario de Registro -->
         <div class="form-container sign-up-container">
@@ -28,7 +28,7 @@
                     <input type="hidden" id="id_rol" name="id_rol" value="1" required/>
                     <input type="text" id="nom_user" name="nom_user" placeholder="Nombre Completo" required/>
                     <span id="nom_userError" class="error-message"></span>
-                    <label></label>
+                    <label></label> 
                 </div>
 
                 <div class="input-group">
@@ -78,11 +78,35 @@
             </form>
         </div>
 
+        
+          <script>
+            window.onload = () => {
+                const usuarioGuardado = localStorage.getItem('usuario');
+        
+                if (usuarioGuardado) {
+                    const usuario = JSON.parse(usuarioGuardado);
+                    document.getElementById('nombreUsuario').textContent = `Bienvenido, ${usuario.nombre}`;
+        
+                    let rolTexto = '';
+                    switch (usuario.id_rol) {
+                        case 1: rolTexto = 'Cliente'; break;
+                        case 2: rolTexto = 'Administrador'; break;
+                        case 3: rolTexto = 'Superusuario'; break;
+                        default: rolTexto = 'Desconocido';
+                    }
+                    document.getElementById('rolUsuario').textContent = `Rol: ${rolTexto}`;
+                } else {
+                    document.getElementById('nombreUsuario').textContent = 'No has iniciado sesión';
+                }
+            };
+        </script>
+        
         <!-- Formulario de Inicio de Sesión -->
         <div class="form-container sign-in-container">
             <form action="http://localhost:3000/login" method="post" id="loginForm">
                 <h1>Iniciar Sesión</h1>
-                <span>Usar una cuenta previamente registrada</span><br><br>
+                <br>
+                <span>Usar una cuenta previamente registrada</span><br>
                 <div class="infield-1">
                     <input type="text" id="num_ident" name="num_ident" placeholder="Número de Identificación" required />
                     <label></label>
@@ -114,15 +138,54 @@
         </div>
     </div>
 
+        <script>
+            // Obtenemos el id del formulario, creamos un evento para ejecutar una función cuando el evento sea tipo submit
+            document.getElementById("loginForm").addEventListener('submit', async function (evento) {
+        
+                evento.preventDefault(); // Comportamiento del navegador, evitar que se recargue la página al enviar el formulario
+        
+                const dataForm = new FormData(this); // Creamos la instancia para obtener los datos del formulario
+        
+                const datos = Object.fromEntries(dataForm.entries()); // Guarda los datos del formulario y los convierte en un objeto
+        
+                try {
+                    // Realiza una solicitud POST al servidor para enviar los datos del formulario
+                    const response = await fetch('http://localhost:3000/login', {
+                        method: 'POST', // Indica que estamos enviando datos al servidor
+                        headers: {
+                            'Content-Type': 'application/json' // Enviamos los datos como JSON
+                        },
+                        body: JSON.stringify(datos) // Convierte el objeto datos a una cadena JSON para enviarlo al servidor
+                    });
+        
+                    const result = await response.json(); // Espera la respuesta del servidor y la convierte en un objeto JSON
+        
+                    if (response.ok) { // Si la respuesta fue exitosa
+                        alert(result.mensaje); // Muestra un mensaje al usuario
+        
+                        // Redirige según el valor de 'redireccion' enviado desde el servidor
+                        if (result.redireccion) {
+                            window.location.href = result.redireccion; // Realiza la redirección a la URL indicada
+                        }
+                    } else {
+                        alert(result.error || 'Error en el inicio de sesión'); // Muestra el error si ocurrió alguno
+                    }
+                } catch (err) { // Si ocurrió un error de red
+                    console.error('Error de red:', err);
+                    alert('Error de red o del servidor');
+                }
+            });
+    </script>
+
     <!-- js code -->
 
-    <script src="../assets/conn/validaciones.js"></script>
+    <script src="../assets/js/validaciones.js"></script>
     <script>
         function toggleForms() {
             const container = document.getElementById('container');
             container.classList.toggle('right-panel-active');
         }
     </script>
+    
 </body>
-
 </html>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Playwrite+IT+Moderna:wght@100..400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Space+Grotesk:wght@300..700&display=swap');
 
 * {
     padding: 0px;
@@ -183,7 +183,7 @@ button{
     cursor: pointer;
     position: absolute;
     left: 54%;
-    top: 374px;
+    top: 368px;
     transform: translateX(-64%);
     width: 143.67px;
     height: 40px;

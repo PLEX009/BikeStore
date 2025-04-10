@@ -1,0 +1,418 @@
+
+/* Estilos generales */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #773B0D;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.informacion {
+    margin: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.informacion h1 {
+    margin-right: 32rem;
+}
+
+.informacion button {
+    width: 140px;
+    height: 40px;
+    border: solid 1px;
+}
+
+.buscar {
+    width: 100%;
+    text-align: end;
+}
+
+.fila-par {
+    background-color: #f3f3f3;
+}
+
+.fila-impar {
+    background-color: #e2e2e2;
+}
+
+.pencil-table {
+    padding: 6px 9px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none;
+}
+
+.editar {
+    margin-left: 7px;
+    background-color: #FFA500;
+}
+
+.eliminar {
+    margin-left: 7px;
+    background-color: #FF4500;
+}
+
+.agregar {
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none;
+    background-color: #228B22;
+}
+
+.filtrar {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 13px;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+}
+
+/* Estilos para la ventana modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    max-height: 56%;
+}
+
+.btn-buscar {
+    width: 100%; /* El campo ocupará el 100% del ancho disponible */
+    max-width: 400px; /* Máximo ancho de 400px en pantallas grandes */
+    padding: 10px 15px; /* Espaciado dentro del campo */
+    background-color: #f9f9f9; /* Color de fondo */
+    border: 1px solid #ccc; /* Borde del campo */
+    border-radius: 13px; /* Bordes redondeados */
+    outline: none; /* Sin contorno al seleccionar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    font-size: 14px; /* Tamaño de la fuente */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 600px) {
+    .btn-buscar {
+        font-size: 12px; /* Reduce el tamaño de la fuente */
+    }
+}
+
+/* Encabezado del modal */
+.modal-header {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Botón para cerrar el modal */
+.close-modal {
+    float: right;
+    font-size: 1.2em;
+    color: #888;
+    cursor: pointer;
+}
+
+/* Estilos del formulario */
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Campos del formulario */
+.modal input[type="text"],
+.modal input[type="number"],
+.modal input[type="date"],
+.modal input[type="submit"],
+.modal select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-horizontal {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.form-horizontal input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-horizontal button {
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none;
+    padding: 10px 10px;
+    width: 12%;
+    background-color: #A52A2A;
+}
+
+/* Botón de envío */
+.modal input[type="submit"] {
+    background-color: #228B22;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Botón de envío hover */
+.modal input[type="submit"]:hover {
+    background-color: #228B22;
+}
+
+.filtro {
+    display: none;
+}
+
+.enca {
+    display: flex;
+    justify-content: space-between;
+}
+
+.paginacion-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    list-style: none;
+    padding: 0;
+}
+
+.paginacion a {
+    text-decoration: none;
+    color: gray;
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.paginacion a:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.paginacion li {
+    display: inline-block;
+}
+
+.current-page {
+    font-weight: bold;
+    color: white;
+    background-color: #007bff; /* Fondo azul brillante para destacar */
+    padding: 8px 15px; /* Mayor padding para hacerla más grande */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Agregar sombra para un efecto elevado */
+}
+
+.prev-next-btn {
+    font-weight: bold;
+    color: #333;
+    background-color: #ddd;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.prev-next-btn:hover {
+    background-color: #bbb;
+}
+
+/* Agregar separación en los bordes */
+.paginacion li:not(:last-child) {
+    margin-right: 1px;
+}
+
+/* Estilo para las páginas que están en hover */
+.paginacion a:hover {
+    background-color: #ddd;
+    color: #333;
+}
+
+/* Estilos para los formularios de dos columnas */
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.form-container .form-column {
+    flex: 1 1 calc(50% - 10px); /* Dos columnas con un pequeño espacio */
+    box-sizing: border-box;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.form-container label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Media Queries para hacer el diseño responsive */
+@media (max-width: 1200px) {
+    .modal {
+        width: 50%;
+    }
+
+    .informacion h1 {
+        margin-right: 10rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .informacion h1 {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .form-container .form-column {
+        flex: 1 1 100%; /* Una columna en pantallas pequeñas */
+    }
+
+    .modal {
+        width: 70%;
+    }
+
+    .paginacion {
+        flex-direction: column;
+    }
+
+    .paginacion a {
+        margin: 5px 0;
+    }
+
+    .informacion button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal {
+        width: 80%;
+        padding: 15px;
+    }
+
+    .modal input[type="submit"] {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .modal {
+        width: 90%;
+    }
+
+    .informacion {
+        flex-direction: column;
+    }
+
+    .informacion h1 {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .paginacion {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-container .form-column {
+        flex: 1 1 100%;
+    }
+}
+
+/* Responsividad para la tabla */
+@media (max-width: 600px) {
+    table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    th, td {
+        white-space: nowrap; /* Evita que el texto se ajuste en celdas pequeñas */
+    }
+
+    .informacion h1 {
+        font-size: 18px;
+        margin-right: 0;
+        text-align: center;
+    }
+}

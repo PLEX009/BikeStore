@@ -16,7 +16,7 @@ app.get('/productos', (req, res) => {
     const params = [];
 
     if (categoria && categoria !== 'todas') {
-        sql += ' WHERE categoria = ?';
+        sql += ' WHERE categoria = ?'; 
         params.push(categoria);
     }
 

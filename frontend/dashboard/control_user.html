@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="../assets/css/style_admin.css">
+  <link rel="icon" href="../assets/img/LogoIcono.ico" class="icono">
+	<title>BikeStore | Dashboard</title>
+</head>
+<body>
+	
+	<!-- SIDEBAR -->
+	<section id="sidebar"><br>
+		<img src="../assets/img/logo_dashboard.jpg" alt="" width="245px" height="60">
+		<ul class="side-menu">
+			<li><a href="index.html"><i class='bx bxs-dashboard icon' ></i> Pagina Principal</a></li><br>
+			<li class="divider" data-text="Menu de Navegacion">Menu de Navegacion</li>
+			<li><a href="control_user.html" class="active"><i class='bx bx-lock icon'></i> Control de Accesos</a></li>
+      <li><a href="stock_produc.html"><i class='bx bx-package icon'></i> Stock de Productos</a></li>
+      <li>
+				<a href="#"><i class='bx bxs-inbox icon' ></i> Resumen Comercial <i class='bx bx-chevron-right icon-right' ></i></a>
+				<ul class="side-dropdown">
+					<li><a href="resumen_ven.html">Resumen de Ventas</a></li>
+					<li><a href="clientes_fre.html">Clientes Frecuentes</a></li>
+				</ul>
+			</li><br>
+
+			<li class="divider" data-text="Autenticacion">Autenticacion</li>
+			<li><a href="#"><i class='bx bx-log-out icon'></i> Cerrar Sesion</a></li><br>
+      <li class="sidebar-item" style="background: #773B0D; padding: 10px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
+        <img src="../assets/img/chatBot.jpg" alt="Foto de perfil" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+        <div style="flex-grow: 1; color: #000;">
+          
+              <p class="cargo" id="nombreUsuario"></p>
+              
+        
+            <div style="font-size: 12px; color: #28b463;"></div>
+        </div>
+        <a class="sidebar-link" aria-expanded="false" style="color: #000;">
+          <p class="name" id="rolUsuario"></p>
+        </a>
+    </li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+	<!-- NAVBAR -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu toggle-sidebar' ></i>
+		</nav>
+		<!-- NAVBAR -->
+    <script>
+      // Obtenemos los datos del usuario logueado desde el servidor
+
+      // Manejo del formulario de login
+      document.getElementById('loginForm').addEventListener('submit', async function (evento) {
+          evento.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+
+          const num_ident = document.getElementById('num_ident').value;
+          const contrasena = document.getElementById('contrasena').value;
+
+          try {
+              const response = await fetch('http://localhost:3000/login', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({ num_ident, contrasena }),
+                  credentials: 'same-origin' // Asegura que las cookies de sesión se envíen
+              });
+
+              const result = await response.json();
+
+              if (response.ok) {
+                  alert(result.mensaje);
+                  window.location.href = result.redireccion; // Redirige a la URL correspondiente según el rol
+              } else {
+                  alert(result.error || 'Error al iniciar sesión');
+              }
+          } catch (err) {
+              console.error('Error de red:', err);
+              alert('Error al conectar con el servidor');
+          }
+      });
+  </script>
+		<!-- MAIN -->
+		<main>
+  
+			<h1 class="title">Control de Usuarios</h1>
+			<ul class="breadcrumbs">
+				<li><a href="index.html">Inicio</a></li>
+				<li class="divider">/</li>
+				<li><a href="control_user.html" class="active">Control de Usuarios</a></li>
+			</ul>
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- NAVBAR -->
+
+	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+	<script src="script.js"></script>
+</body>
+</html>
