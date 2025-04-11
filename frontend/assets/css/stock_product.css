@@ -116,13 +116,12 @@ th {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 40%;
+    width: 50%;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     z-index: 1001;
-    max-height: 56%;
 }
 
 .btn-buscar {
@@ -181,6 +180,16 @@ th {
     box-sizing: border-box;
 }
 
+.modal textarea {
+    resize: none;
+    padding: 10px;
+    min-height: 80px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
 .form-horizontal {
     display: flex;
     gap: 10px;
@@ -205,7 +214,7 @@ th {
     border: none;
     padding: 10px 10px;
     width: 12%;
-    background-color: #A52A2A;
+    background-color: rgb(75, 75, 181);
 }
 
 /* Botón de envío */
@@ -319,8 +328,8 @@ th {
 }
 
 .form-container label {
-    font-weight: bold;
     margin-bottom: 5px;
+    font-size: 13px;
     display: block;
 }
 

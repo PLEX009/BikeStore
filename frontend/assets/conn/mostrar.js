@@ -94,12 +94,31 @@ function mostrarDetalleProducto(producto) {
     const detalleContainer = document.getElementById('producto-detalle-info');
 
     detalleContainer.innerHTML = `
-        <img src="../assets/carte/${producto.imagen}.png" alt="${producto.nombre}" style="max-width: 200px;">
-        <h3>${producto.nombre}</h3>
-        <p><strong>Descripción:</strong> ${producto.descripcion}</p>
-        <p><strong>Características:</strong> ${producto.caracteristicas}</p>
-        <p><strong>Marca:</strong> ${producto.marca}</p>
-        <p><strong>Precio:</strong> $${producto.precio_unitario}</p>
+     <div class="modal-producto-body">
+        <div class="modal-producto-imagen">
+            <img src="../assets/carte/${producto.imagen}.png" alt="${producto.nombre}" style="max-width: 200px;">
+        </div>
+        <div class="modal-producto-info1">
+            <h3 class="Titulo-Producto">${producto.nombre}</h3>
+            <p class="modal-producto-precio" id="modal-producto-precio"><strong>Precio:</strong> $${producto.precio_unitario}</p>
+            <div class="modal-producto-descripcion">
+                <h3>Descripción:</h3>
+                <p id="modal-producto-descripcion">${producto.descripcion}</p>
+            </div>
+            <p><strong>Características:</strong> ${producto.caracteristicas}</p>
+            <p><strong>Marca:</strong> ${producto.marca}</p>
+            <p><strong>Categoria:</strong> ${producto.categoria}</p>
+
+            <div class="modal-producto-acciones">
+                <button class="btn-carrito" id="modal-producto-agregar">
+                    <i class="fas fa-shopping-cart"></i>
+                    Agregar al Carrito
+                </button>
+            </div>
+           
+        </div>
+    </div>
+
     `;
 
     modal.style.display = 'block';

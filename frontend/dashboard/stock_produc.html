@@ -1,109 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-	<link rel="stylesheet" href="../assets/css/style_admin.css">
-  <link rel="icon" href="../assets/img/LogoIcono.ico" class="icono">
-  <link rel="stylesheet" href="/frontend/assets/css/stock_product.css">
-	<title>BikeStore | Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/style_admin.css">
+    <link rel="icon" href="../assets/img/LogoIcono.ico" class="icono">
+    <link rel="stylesheet" href="/frontend/assets/css/stock_product.css">
+    <title>BikeStore | Dashboard</title>
 </head>
+
 <body>
-	
-	<!-- SIDEBAR -->
-	<section id="sidebar"><br>
-		<img src="../assets/img/logo_dashboard.jpg" alt="" width="245px" height="60">
-		<ul class="side-menu">
-			<li><a href="index.html"><i class='bx bxs-dashboard icon' ></i> Pagina Principal</a></li><br>
-			<li class="divider" data-text="Menu de Navegacion">Menu de Navegacion</li>
-			<li><a href="control_user.html"><i class='bx bx-lock icon'></i> Control de Accesos</a></li>
-            <li><a href="stock_produc.html" class="active"><i class='bx bx-package icon'></i> Stock de Productos</a></li>
-      <li>
-				<a href="#"><i class='bx bxs-inbox icon' ></i> Resumen Comercial <i class='bx bx-chevron-right icon-right' ></i></a>
-				<ul class="side-dropdown">
-					<li><a href="resumen_ven.html">Resumen de Ventas</a></li>
-					<li><a href="clientes_fre.html" class="active">Clientes Frecuentes</a></li>
-				</ul>
-			</li><br>
 
-			<li class="divider" data-text="Autenticacion">Autenticacion</li>
-			<li><a href="#"><i class='bx bx-log-out icon'></i> Cerrar Sesion</a></li><br>
-      <li class="sidebar-item" style="background: #773B0D; padding: 10px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
-        <img src="../assets/img/chatBot.jpg" alt="Foto de perfil" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
-        <div style="flex-grow: 1; color: #000;">
-          
-              <p class="cargo" id="nombreUsuario"></p>
-              
-        
-            <div style="font-size: 12px; color: #28b463;"></div>
-        </div>
-        <a class="sidebar-link" aria-expanded="false" style="color: #000;">
-          <p class="name" id="rolUsuario"></p>
-        </a>
-    </li>
-		</ul>
-	</section>
-	<!-- SIDEBAR -->
+    <!-- SIDEBAR -->
+    <section id="sidebar"><br>
+        <img src="../assets/img/logo_dashboard.jpg" alt="" width="245px" height="60">
+        <ul class="side-menu">
+            <li><a href="index.html"><i class='bx bxs-dashboard icon'></i> Pagina Principal</a></li><br>
+            <li class="divider" data-text="Menu de Navegacion">Menu de Navegacion</li>
+            <li><a href="control_user.html"><i class='bx bx-lock icon'></i> Control de Accesos</a></li>
+            <li><a href="stock_produc.html" class="active"><i class='bx bx-package icon'></i> Stock de Productos</a>
+            </li>
+            <li>
+                <a href="#"><i class='bx bxs-inbox icon'></i> Resumen Comercial <i
+                        class='bx bx-chevron-right icon-right'></i></a>
+                <ul class="side-dropdown">
+                    <li><a href="resumen_ven.html">Resumen de Ventas</a></li>
+                    <li><a href="clientes_fre.html" class="active">Clientes Frecuentes</a></li>
+                </ul>
+            </li><br>
 
-	<!-- NAVBAR -->
-	<section id="content">
-		<!-- NAVBAR -->
-		<nav>
-			<i class='bx bx-menu toggle-sidebar' ></i>
-		</nav>
-		<!-- NAVBAR -->
-    <script>
-      // Obtenemos los datos del usuario logueado desde el servidor
+            <li class="divider" data-text="Autenticacion">Autenticacion</li>
+            <li><a href="#"><i class='bx bx-log-out icon'></i> Cerrar Sesion</a></li><br>
+            <li class="sidebar-item"
+                style="background: #773B0D; padding: 10px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
+                <img src="../assets/img/chatBot.jpg" alt="Foto de perfil"
+                    style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+                <div style="flex-grow: 1; color: #000;">
 
-      // Manejo del formulario de login
-      document.getElementById('loginForm').addEventListener('submit', async function (evento) {
-          evento.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+                    <p class="cargo" id="nombreUsuario"></p>
 
-          const num_ident = document.getElementById('num_ident').value;
-          const contrasena = document.getElementById('contrasena').value;
 
-          try {
-              const response = await fetch('http://localhost:3000/login', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify({ num_ident, contrasena }),
-                  credentials: 'same-origin' // Asegura que las cookies de sesión se envíen
-              });
+                    <div style="font-size: 12px; color: #28b463;"></div>
+                </div>
+                <a class="sidebar-link" aria-expanded="false" style="color: #000;">
+                    <p class="name" id="rolUsuario"></p>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
 
-              const result = await response.json();
+    <!-- NAVBAR -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+            <i class='bx bx-menu toggle-sidebar'></i>
+        </nav>
+        <!-- NAVBAR -->
+        <!-- MAIN -->
+        <main>
 
-              if (response.ok) {
-                  alert(result.mensaje);
-                  window.location.href = result.redireccion; // Redirige a la URL correspondiente según el rol
-              } else {
-                  alert(result.error || 'Error al iniciar sesión');
-              }
-          } catch (err) {
-              console.error('Error de red:', err);
-              alert('Error al conectar con el servidor');
-          }
-      });
-  </script>
-		<!-- MAIN -->
-		<main>
-  
-			<h1 class="title">Stock de Productos</h1>
-			<ul class="breadcrumbs">
-				<li><a href="index.html">Inicio</a></li>
-				<li class="divider">/</li>
-				<li><a href="stock_produc.html" class="active">Stock de Productos</a></li>
-			</ul><br><br>
+            <h1 class="title">Stock de Productos</h1>
+            <ul class="breadcrumbs">
+                <li><a href="index.html">Inicio</a></li>
+                <li class="divider">/</li>
+                <li><a href="stock_produc.html" class="active">Stock de Productos</a></li>
+            </ul><br><br>
 
-			<!--  Header End -->
+            <!--  Header End -->
             <div class="container-fluid"><br><br>
                 <div class="enca">
-                    <h3>Perfume Caballero</h3>
-                    <button type="button" class="agregar" id="abrirModal">Nuevo Perfume</button>
+                    <h3>Catalogo De Bicicletas</h3>
+                    <button type="button" class="agregar" id="abrirModal">Nueva Bicicleta</button>
                 </div>
-                <hr>
+
                 <div class="informacion">
 
 
@@ -111,45 +83,99 @@
                     <div class="modal-overlay" id="modalOverlay"></div>
 
 
-
                     <!-- Ventana modal -->
-                  <div class="modal" id="modal">
-    <span class="close-modal" id="cerrarModal">&times;</span>
-    <div class="modal-header">JOSE MANUEL ME LA CHUPA Nueva Bicicletas</div>
-    <form action="agregar/caballero.php" method="POST" enctype="multipart/form-data">
-        <div class="form-container">
-            <!-- Primera columna -->
-            <div class="form-column">
-                <label for="nombre">Nombre De la Bicicleta</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Ingrese el nombre" required>
+                    <div class="modal" id="modal">
+                        <span class="close-modal" id="cerrarModal">&times;</span>
+                        <div class="modal-header">Añadir Producto</div><br>
+                        <form action="http://localhost:8080/agregarP" method="post" id="registrarProductos" >
+                            <div class="form-container">
+                                <!-- Primera columna -->
+                                <div class="form-column">
+                                    <label for="nombre">Nombre Producto</label>
+                                    <input type="text" id="nombre" name="nombre" placeholder="Ingrese el Nombre" required>
+                                        
+                                    <label for="descripcion">Descripcion del Producto</label>
+                                    <textarea name="descripcion" id="descripcion" placeholder="Ingrese la Descripcion" required></textarea>
 
-                <label for="categoria">Categoria de la Bicicleta</label>
-                <input type="number" id="categoria" name="categoria" placeholder="Ingrese la Categoria" required>
-                
-                <label for="caracterisiticas ">Caracterisiticas de la Bicicleta</label>
-                <input type="number" id="caracterisiticas" name="caracterisiticas" placeholder="Ingrese las Caracterisiticas " required>
 
-                <label for="descripcion">Descripcion de la Bicicleta</label>
-                <input type="number" id="descripcion" name="descripcion" placeholder="Ingrese la Descripcion">
-            </div>
+                                    <label for="categoria">Categoria Producto</label>
+                                    <select name="categoria" id="categoria" required>
+                                        <option value="seleccione">Seleccione la Categoria</option>
+                                        <option value="accesorios">Accesorios</option>
+                                        <option value="montana">Bicicleta de Montaña</option>
+                                        <option value="carretera">Bicicleta de Carretera</option>
+                                        <option value="urbana">Bicicleta Urbana</option>
+                                        <option value="electrica">Bicicleta Electrica</option>
+                                        <option value="bmx">Bicicleta BMX</option>
+                                    </select>
 
-            <!-- Segunda columna -->
-            <div class="form-column">
-                <label for="casa">Inspirado En</label>
-                <input type="text" id="casa" name="casa" placeholder="Ingrese el Inspirado En">
+                                    <label for="precio_unitario">Precio Unitario</label>
+                                    <input type="number" id="precio_unitario" name="precio_unitario" placeholder="Ingrese el Precio Unitario " required>
 
-                <label for="precio_50">Precio Perfume 50ml</label>
-                <input type="number" id="precio_50" name="precio_50" placeholder="Ingrese el precio para 50ml" required>
+                                    <label for="saldo">Cantidad en Stock</label>
+                                    <input type="number" id="saldo" name="saldo" placeholder="Ingrese el Precio Unitario " required>
+                                </div>
 
-                <label for="nom_img">Imagen del Perfume</label>
-                <input type="file" id="nom_img" name="nom_img" accept=".jpg, .jpeg" required>
-            </div>
-        </div>
+                                <!-- Segunda columna -->
+                                <div class="form-column">
+                                    <label for="nombre">Marca Producto</label>
+                                    <input type="text" id="marca" name="marca" placeholder="Ingrese la Marca" required>
 
-        <input type="submit" value="Guardar Perfume">
-    </form>
-</div>
+                                    <label for="caracteristicas">Caracterisiticas Producto</label>
+                                    <textarea name="caracteristicas" id="caracteristicas" placeholder="Ingrese las Caracteristicas" required></textarea>
 
+                                    <label for="nom_img">Imagen de la Bicicleta </label>
+                                    <input type="file" id="imagen" name="imagen" accept=".png">
+                                    
+                                    <label for="entradas">Entradas Producto</label>
+                                    <input type="number" id="entradas" name="entradas" placeholder="Ingrese el Precio Unitario " required>
+
+                                    <label for="limite">Limite de Producto</label>
+                                    <input type="number" id="limite" name="limite" placeholder="Ingrese el Precio Unitario " required>
+                                </div>
+                            </div>
+
+                            <input type="submit" value="Guardar Producto">
+                        </form>
+                    </div>
+                    <script>
+                        // Obtenemos el id del formulario, creamos un evento para ejecutar una función cuando el evento sea tipo submit
+                        document.getElementById("registrarProductos").addEventListener('submit', async function (evento) {
+                    
+                            evento.preventDefault(); // Comportamiento del navegador, evitar que se recargue la página al enviar el formulario
+                    
+                            const dataForm = new FormData(this); // Creamos la instancia para obtener los datos del formulario
+                    
+                            const datos = Object.fromEntries(dataForm.entries()); // Guarda los datos del formulario y los convierte en un objeto
+                    
+                            try {
+                                // Realiza una solicitud POST al servidor para enviar los datos del formulario
+                                const response = await fetch('http://localhost:8080/agregarP', {
+                                    method: 'POST', // Indica que estamos enviando datos al servidor
+                                    headers: {
+                                        'Content-Type': 'application/json' // Enviamos los datos como JSON
+                                    },
+                                    body: JSON.stringify(datos) // Convierte el objeto datos a una cadena JSON para enviarlo al servidor
+                                });
+                    
+                                const result = await response.json(); // Espera la respuesta del servidor y la convierte en un objeto JSON
+                    
+                                if (response.ok) { // Si la respuesta fue exitosa
+                                    alert(result.mensaje); // Muestra un mensaje al usuario
+                    
+                                    // Redirige según el valor de 'redireccion' enviado desde el servidor
+                                    if (result.redireccion) {
+                                        window.location.href = result.redireccion; // Realiza la redirección a la URL indicada
+                                    }
+                                } else {
+                                    alert(result.error || 'Error en el inicio de sesión'); // Muestra el error si ocurrió alguno
+                                }
+                            } catch (err) { // Si ocurrió un error de red
+                                console.error('Error de red:', err);
+                                alert('Error de red o del servidor');
+                            }
+                        });
+                </script>
 
 
                     <script>
@@ -186,103 +212,97 @@
 
                 <!-- Modal para Editar Perfume -->
                 <div class="modal" id="modalEditar" style="display: none;">
-    <span class="close-modal" id="cerrarModalEditar">&times;</span>
-    <div class="modal-header">Editar Perfume</div>
-    <form id="formEditar" method="POST" action="editar/caballero.php" enctype="multipart/form-data">
-        <input type="hidden" id="codigo" name="codigo">
+                    <span class="close-modal" id="cerrarModalEditar">&times;</span>
+                    <div class="modal-header">Editar Perfume</div>
+                    <form id="formEditar" method="POST" action="editar/caballero.php" enctype="multipart/form-data">
+                        <input type="hidden" id="codigo" name="codigo">
 
-        <div class="form-container">
-            <!-- Primera columna -->
-            <div class="form-column">
-                <label for="nombreEditar">Nombre del Perfume</label>
-                <input type="text" id="nombreEditar" name="nombre" placeholder="Ingrese el nombre" required>
+                        <div class="form-container">
+                            <!-- Primera columna -->
+                            <div class="form-column">
+                                <label for="nombreEditar">Nombre del Perfume</label>
+                                <input type="text" id="nombreEditar" name="nombre" placeholder="Ingrese el nombre"
+                                    required>
 
-                <label for="precio_100Editar">Precio Perfume 100ml</label>
-                <input type="number" id="precio_100Editar" name="precio_100Editar" placeholder="Ingrese el precio para 100ml" required>
-                
-                <label for="Caracterisiticas">Precio Perfume 30ml</label>
-                <input type="number" id="precio_30Editar" name="precio_30Editar" placeholder="Ingrese el precio para 30ml" required>
+                                <label for="precio_100Editar">Precio Perfume 100ml</label>
+                                <input type="number" id="precio_100Editar" name="precio_100Editar"
+                                    placeholder="Ingrese el precio para 100ml" required>
 
-                <label for="descuentoEditar">Descuento del Perfume</label>
-                <input type="number" id="descuentoEditar" name="descuentoEditar" placeholder="Ingrese el descuento">
-            </div>
+                                <label for="Caracterisiticas">Precio Perfume 30ml</label>
+                                <input type="number" id="precio_30Editar" name="precio_30Editar"
+                                    placeholder="Ingrese el precio para 30ml" required>
 
-            <!-- Segunda columna -->
-            <div class="form-column">
-                <label for="casa">Inspirado En</label>
-                <input type="text" id="casaEditar" name="casa" placeholder="Ingrese el Inspirado En">
+                                <label for="descuentoEditar">Descuento del Perfume</label>
+                                <input type="number" id="descuentoEditar" name="descuentoEditar"
+                                    placeholder="Ingrese el descuento">
+                            </div>
 
-                <label for="precio_50Editar">Precio Perfume 50ml</label>
-                <input type="number" id="precio_50Editar" name="precio_50Editar" placeholder="Ingrese el precio para 50ml" required>
+                            <!-- Segunda columna -->
+                            <div class="form-column">
+                                <label for="casa">Inspirado En</label>
+                                <input type="text" id="casaEditar" name="casa" placeholder="Ingrese el Inspirado En">
 
-                <label for="nom_imgEditar">Imagen del Perfume</label>
-                <input type="file" id="nom_imgEditar" name="nom_imgEditar" accept=".jpg, .jpeg">
+                                <label for="precio_50Editar">Precio Perfume 50ml</label>
+                                <input type="number" id="precio_50Editar" name="precio_50Editar"
+                                    placeholder="Ingrese el precio para 50ml" required>
 
-            </div>
-        </div>
+                                <label for="nom_imgEditar">Imagen del Perfume</label>
+                                <input type="file" id="nom_imgEditar" name="nom_imgEditar" accept=".jpg, .jpeg">
 
-        <input type="submit" value="Editar Perfume">
-    </form>
-</div>
+                            </div>
+                        </div>
 
+                        <input type="submit" value="Editar Perfume">
+                    </form>
+                </div>
 
                 <script>
-    // Variables para el modal de edición y la superposición
-    const modalEditar = document.getElementById("modalEditar");
-    const modalOverlayE = document.getElementById("modalOverlayE");
-    const cerrarModalEditarBtn = document.getElementById("cerrarModalEditar");
+                    // Variables para el modal de edición y la superposición
+                    const modalEditar = document.getElementById("modalEditar");
+                    const modalOverlayE = document.getElementById("modalOverlayE");
+                    const cerrarModalEditarBtn = document.getElementById("cerrarModalEditar");
 
-    // Función para abrir el modal de edición y cargar datos
-    function editarPerfume(codigo) {
-        // Mostrar el modal y la superposición
-        modalEditar.style.display = "block";
-        modalOverlayE.style.display = "block";
+                    // Función para abrir el modal de edición y cargar datos
+                    function editarPerfume(codigo) {
+                        // Mostrar el modal y la superposición
+                        modalEditar.style.display = "block";
+                        modalOverlayE.style.display = "block";
 
-        // Solicitud AJAX para obtener los datos del perfume
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', `editar/op_caballero.php?codigo=${codigo}`, true);
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                const perfume = JSON.parse(xhr.responseText);
+                        // Solicitud AJAX para obtener los datos del perfume
+                        const xhr = new XMLHttpRequest();
+                        xhr.open('GET', `editar/op_caballero.php?codigo=${codigo}`, true);
+                        xhr.onload = function () {
+                            if (xhr.status === 200) {
+                                const perfume = JSON.parse(xhr.responseText);
 
-                // Rellenar los campos del formulario con los datos del perfume
-                document.getElementById('codigo').value = perfume.codigo;
-                document.getElementById('nombreEditar').value = perfume.nombre;
-                document.getElementById('casaEditar').value = perfume.casa;
-                document.getElementById('precio_100Editar').value = perfume.precio_100;
-                document.getElementById('precio_50Editar').value = perfume.precio_50;
-                document.getElementById('precio_30Editar').value = perfume.precio_30;
-                document.getElementById('descuentoEditar').value = perfume.descuento;
-            }
-        };
-        xhr.send();
-    }
+                                // Rellenar los campos del formulario con los datos del perfume
+                                document.getElementById('codigo').value = perfume.codigo;
+                                document.getElementById('nombreEditar').value = perfume.nombre;
+                                document.getElementById('casaEditar').value = perfume.casa;
+                                document.getElementById('precio_100Editar').value = perfume.precio_100;
+                                document.getElementById('precio_50Editar').value = perfume.precio_50;
+                                document.getElementById('precio_30Editar').value = perfume.precio_30;
+                                document.getElementById('descuentoEditar').value = perfume.descuento;
+                            }
+                        };
+                        xhr.send();
+                    }
 
-    // Función para cerrar el modal y la superposición
-    function cerrarModalEditar() {
-        modalEditar.style.display = "none";
-        modalOverlayE.style.display = "none";
-    }
+                    // Función para cerrar el modal y la superposición
+                    function cerrarModalEditar() {
+                        modalEditar.style.display = "none";
+                        modalOverlayE.style.display = "none";
+                    }
 
-    // Cerrar el modal al hacer clic en la "X" o en la superposición
-    cerrarModalEditarBtn.addEventListener("click", cerrarModalEditar);
-    modalOverlayE.addEventListener("click", cerrarModalEditar);
-</script>
-
-
-
-
-
+                    // Cerrar el modal al hacer clic en la "X" o en la superposición
+                    cerrarModalEditarBtn.addEventListener("click", cerrarModalEditar);
+                    modalOverlayE.addEventListener("click", cerrarModalEditar);
+                </script>
                 <br>
-
-
                 <div class="table">
-                    
-
                     <!-- Formulario de búsqueda -->
-                    <form method="get" action="caballero.php" class="form-horizontal">
-                        <input type="text" name="buscar" value=""
-                            placeholder="Buscar Por Nombre de Perfume ...">
+                    <form method="get" action="" class="form-horizontal">
+                        <input type="text" name="buscar" value="" placeholder="Buscar Por Nombre de Bicicleta ...">
                         <button class="btn-buscar" type="submit">Buscar</button>
                     </form>
 
@@ -290,27 +310,68 @@
                     <table>
                         <thead>
                             <tr>
+                                <th>Id</th>
                                 <th>Nombre</th>
-                                <th>Descripción</th>
                                 <th>Caracteristicas</th>
                                 <th>Precio Unitario</th>
                                 <th>Categoria</th>
                                 <th>Marca</th>
-                                <th>Imagen</th>
+                                <th>Entradas</th>
+                                <th>Salidas</th>
+                                <th>Saldo</th>
+                                <th>Limite</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
-                        <tbody>
-                          
-                        </tbody>
-
+                        <tbody></tbody>
                     </table>
+                    <script>
+                        // Cambia la URL a http://localhost:3000/productos
+                        fetch('http://localhost:3000/productos')  // Llamamos a la ruta completa con el puerto 3000
+                            .then(res => res.json())
+                            .then(data => {
+                                const tbody = document.querySelector('tbody');
+                    
+                                data.forEach(producto => {
+                                    const fila = document.createElement('tr');
+                                    fila.innerHTML = `
+                                        <td>${producto.id}</td>
+                                        <td>${producto.nombre}</td>
+                                        <td>${producto.caracteristicas}</td>
+                                        <td>${producto.precio_unitario}</td>
+                                        <td>${producto.categoria}</td>
+                                        <td>${producto.marca}</td>
+                                        <td>${producto.entradas}</td>
+                                        <td>${producto.salidas}</td>
+                                        <td>${producto.saldo}</td>
+                                        <td>${producto.limite}</td>
+                                        <td>
+                                            <button onclick="editarProducto(${producto.id})">Editar</button>
+                                            <button onclick="eliminarProducto(${producto.id})">Eliminar</button>
+                                        </td>
+                                    `;
+                                    tbody.appendChild(fila);
+                                });
+                            })
+                            .catch(err => console.error('❌ Error al cargar productos:', err));
+                    
+                        function editarProducto(id) {
+                            alert(`Editar producto con ID ${id}`);
+                        }
+                    
+                        function eliminarProducto(id) {
+                            alert(`Eliminar producto con ID ${id}`);
+                        }
+                    </script>
+                    
+                        
 
 
-                   
+
                     <!-- Paginación fuera de la tabla -->
                     <div class="paginacion-container">
                         <ul class="paginacion">
-                          
+
                         </ul>
                     </div>
 
@@ -323,15 +384,16 @@
 
             </div>
 
-        </div>
-    </div>
+            </div>
+            </div>
 
-		</main>
-		<!-- MAIN -->
-	</section>
-	<!-- NAVBAR -->
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- NAVBAR -->
 
-	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-	<script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
