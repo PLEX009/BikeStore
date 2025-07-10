@@ -1,0 +1,485 @@
+@import "paleta.module.css";
+
+/* ---------- ESTRUCTURA GENERAL ---------- */
+.container {
+  display: flex;
+  background-color: #ffffff;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.logo_container img {
+  height: 40px;
+  margin: 15px;
+  transition: transform 0.2s ease;
+}
+
+.logo_container img:hover {
+  transform: scale(1.05);
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.nav-left,
+.nav_main,
+.nav_right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav_main {
+  justify-content: center;
+  flex: 1;
+  gap: 5rem;
+}
+
+.nav_right {
+  justify-content: flex-end;
+  gap: 3rem;
+}
+
+.cart_icon {
+  position: relative;
+  cursor: pointer;
+  color: var(--primary-color);
+  font-size: 1.3rem;
+}
+
+.cart_icon span {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  position: absolute;
+  top: -10px;
+  right: -14px;
+}
+
+/* ---------- SECCIÓN DE USUARIO ---------- */
+/* Estilos para la sección de usuario */
+.user_section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  height: 50px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.user_section:hover {
+ background-color: rgba(102, 126, 234, 0.05);
+}
+
+.user_info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.user_icon {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+.user_name {
+  font-weight: 600;
+  color: var(--primary-color);
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.user_info:not(.authenticated) .user_name {
+  color: #666;
+  font-weight: 500;
+}
+
+.user_info.authenticated .user_name {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Estilos para las acciones del usuario */
+.user_actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.historial_btn {
+  background: #773b0d;
+  color: white;
+  border: none;
+  padding: 0.46rem .5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.historial_btn:hover {
+  background: #773f0a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(153, 85, 8, 0.752);
+}
+
+.historial_btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(125, 77, 6, 0.2);
+}
+
+.historial_btn span {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .historial_btn span {
+    display: inline;
+  }
+}
+
+
+.logout_btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.logout_btn:hover {
+  background: #c82333;
+  
+  box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+}
+
+.logout_btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
+}
+.logout_btn span {
+  display: none;
+}
+
+.logout_btn:hover span {
+  display: inline;
+}
+
+
+.login_btn {
+  background: linear-gradient(135deg, #773b0d 80%, #773f0a 35%);
+  color: white !important;
+  border: none;
+  padding: 0.7rem 1rem !important;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.login_btn:hover {
+  background: #59370b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(120, 76, 5, 0.3);
+  color: white;
+}
+
+
+.login_btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(40, 167, 69, 0.2);
+}
+
+.login_btn span {
+  display: none;
+}
+
+.login_btn:hover span {
+  display: inline;
+}
+
+/* Botón hamburguesa */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--primary-color);
+  z-index: 110;
+}
+
+/* Enlaces generales */
+.nav a,
+.nav-admin a {
+  position: relative;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  transition: color 0.3s ease;
+}
+
+.nav a::after,
+.nav-admin a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease-in-out;
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+  width: 100%;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--primary-color);
+}
+
+/* ---------- RESPONSIVE: móviles (<768px) ---------- */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    z-index: 5;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    display: none;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
+
+  .nav a {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  
+  .nav.open {
+    display: flex;
+  }
+
+  .nav_main,
+  .nav_right {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .nav_right  {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+  }
+
+  /* Estilos responsivos para la sección de usuario */
+  .user_section {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .user_info {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .user_name {
+    max-width: none;
+    font-size: 1rem;
+  }
+
+  .logout_btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .logout_btn span {
+    display: inline;
+  }
+
+  .login_btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  
+
+  .login_btn span {
+    display: inline;
+  }
+}
+
+
+
+/* ---------- RESPONSIVE: tablets y laptops pequeñas (769px a 1340px) ---------- */
+@media (min-width: 769px) and (max-width: 1340px) {
+  .nav_main {
+    gap: 2.5rem;
+  }
+
+  .nav_right {
+    gap: 1.7rem;
+  }
+
+  .nav a {
+    font-size: 0.95rem;
+  }
+
+  .logo_container img {
+    height: 36px;
+    margin: 10px;
+  }
+
+  
+}
+
+/* ---------- RESPONSIVE: tablets y laptops pequeñas (769px a 1018px) ---------- */
+@media (max-width: 1087px) and (min-width: 400px) {
+  /* Mostrar menú hamburguesa y ocultar menú horizontal */
+  .hamburger {
+    display: block;
+    z-index: 5;
+  }
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    display: none;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
+  .nav.open {
+    display: flex;
+  }
+  .nav_main,
+  .nav_right {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  .nav_right {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+  }
+  .container {
+    padding: 0.5rem 0.5rem;
+  }
+  .logo_container img {
+    height: 30px;
+    margin: 5px;
+  }
+  .user_section {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    width: 100%;
+    gap: 35px;
+    justify-content: center;
+    max-width: 300px;
+  }
+
+  
+  .user_actions{
+    gap: 35px;
+    
+  }
+  .user_info {
+    width: 100%;
+    justify-content: center;
+  }
+  .user_name {
+    max-width: none;
+    font-size: 0.95rem;
+  }
+  .logout_btn, .login_btn {
+    width: 8rem;
+    justify-content: center;
+    padding: 0.7rem;
+    font-size: 0.85rem;
+  }
+  .logout_btn span, .login_btn span {
+    display: inline;
+  }
+  .cart_icon {
+    font-size: 1.1rem;
+  }
+}
+
+
+  
+
+
+
+/* ---------- RESPONSIVE: escritorios grandes (>1340px) ---------- */
+/* No es necesario cambiar nada, ya está definido arriba como estilo "normal" */

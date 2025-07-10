@@ -1,0 +1,15 @@
+* {
+   margin: 0px;
+   padding: 0px;
+   font-family: "Roboto", sans-serif;
+}
+
+:root {
+   --linear-grad: linear-gradient(to right, #773b0d, #773b0d);
+   --primary-color: #773b0d;
+   --secondary-color: rgb(14, 229, 164);
+   --button-color: #F28500;
+   --color-complementario: #003049;
+   --dark-color: #343A40;
+   --text-color: #2C2C2C;
+}
