@@ -116,8 +116,6 @@ const HighlightCard = ({ title, icon, main, sub, image, color }) => (
     </div>
     <div className={style.highlightContent}>
       {/* Imagen del item destacado (producto, usuario, proveedor) */}
-      {image && <img src={image} alt={main} className={style.highlightImage} />}
-      {/* Texto principal (nombre del item) */}
       <div className={style.highlightMain}>{main}</div>
       {/* Texto secundario (informacion adicional) */}
       <div className={style.highlightSub}>{sub}</div>

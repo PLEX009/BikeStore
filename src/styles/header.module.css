@@ -41,8 +41,8 @@
 
 .nav_main {
   justify-content: center;
-  flex: 1;
-  gap: 5rem;
+  flex: 1; 
+  gap: 4rem;
 }
 
 .nav_right {
